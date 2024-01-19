@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chatbot Interface</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script>
+        function submitQuestion() {
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "/", true);
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xhr.onreadystatechange = function() {
+                if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+                    updateChat(JSON.parse(this.responseText));
+                }
+            }
+            var question = document.getElementsByName("question")[0].value;
+            xhr.send("question=" + question);
+        }
+
+        function updateChat(chatHistory) {
+            var chatBox = document.getElementById("chat-box");
+            chatBox.innerHTML = "";
+            chatHistory.forEach(function(chat) {
+                var message = document.createElement("div");
+                message.className = chat.type;
+                message.innerText = chat.text;
+                chatBox.appendChild(message);
+            });
+            document.getElementsByName("question")[0].value = "";
+        }
+    </script>
+</head>
+<body>
+    <div id="chat-box" class="chat-box"></div>
+    <div class="chat-interface">
+        <div class="chat-form">
+            <button type="button" onclick="location.href='/clear'">Clear History</button>
+            <textarea name="question" placeholder="Type your question here..."></textarea>
+            <button type="button" onclick="submitQuestion()">Send</button>
+        </div>
+    </div>
+</body>
+</html>
