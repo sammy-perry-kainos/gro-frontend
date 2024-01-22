@@ -31,7 +31,6 @@ body, html {
     cursor: pointer;
 }
 
-/* Additional styles */
 button {
     border: none;
     background-color: #4CAF50;
@@ -52,11 +51,12 @@ textarea {
 
 .chat-box {
     position: fixed;
-    bottom: 100px; /* Height of the chat-interface */
+    bottom: 100px; 
     left: 0;
     right: 0;
+    top: 70px;
     overflow-y: auto;
-    max-height: calc(100% - 120px); /* Adjust based on your interface */
+    max-height: calc(100% - 120px);
     padding: 10px;
     background-color: #f9f9f9;
     box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.2);
@@ -79,4 +79,13 @@ textarea {
     background-color: #fff;
     align-self: flex-start;
     margin-right: auto;
+}
+
+.page-title {
+    text-align: center;
+    font-size: 24px; 
+    font-weight: bold; 
+    color: #333; 
+    margin: 20px 0; 
+    padding-top: 20px; 
 }
