@@ -34,6 +34,10 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      URL: ${{ secrets.URL }}
+      KEY: ${{ secrets.KEY }}
+      DEPLOYMENT: ${{ secrets.DEPLOYMENT }}
 
     steps:
       - uses: actions/checkout@v3
