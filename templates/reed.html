@@ -8,7 +8,7 @@
     <script>
         function submitQuestion() {
             var xhr = new XMLHttpRequest();
-            xhr.open("POST", "/", true);
+            xhr.open("POST", "/reed", true);
             xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
             xhr.onreadystatechange = function() {
                 if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
@@ -34,7 +34,7 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-lg">
-        <a class="navbar-brand" href="">GRO Q&A Chatbot</a>
+        <a class="navbar-brand" href="">Reed Q&A Chatbot</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -52,7 +52,7 @@
     <div id="chat-box" class="chat-box"></div>
     <div class="chat-interface">
         <div class="chat-form">
-            <button type="button" onclick="location.href='/clear'">Clear History</button>
+            <button type="button" onclick="location.href='/clear_reed'">Clear History</button>
             <textarea name="question" placeholder="Type your question here..."></textarea>
             <button type="button" onclick="submitQuestion()">Send</button>
         </div>
